@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">aesthetic_calculator</string>
+    <!-- string value for result button hint variable   -->
+    <string name="result_box">result</string>
+
+    <!-- string value for calculation button hint variable   -->
+    <string name="calc_box">calculations shown here</string>
+
+
+    <!-- string values for number buttons -->
+    <string name="btn0">0</string>
+    <string name="btn1">1</string>
+    <string name="btn2">2</string>
+    <string name="btn3">3</string>
+    <string name="btn4">4</string>
+    <string name="btn5">5</string>
+    <string name="btn6">6</string>
+    <string name="btn7">7</string>
+    <string name="btn8">8</string>
+    <string name="btn9">9</string>
+    <string name="btndot">.</string>
+
+
+    <!-- string value for operation button -->
+    <string name="all_clear">AC</string>
+    <string name="del">BS</string>
+    <string name="percentage">%</string>
+    <string name="div">÷</string>
+    <string name="multiply">×</string>
+    <string name="sub">-</string>
+    <string name="add">+</string>
+    <string name="equals">=</string>
+
+
+
+
+</resources>
