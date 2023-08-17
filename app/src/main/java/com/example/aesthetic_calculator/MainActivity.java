@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         opers.add(subtract);
         opers.add(divide);
         opers.add(multiply);
+        opers.add(percentage);
 
         //adding function to each basic function button
         for(Button b: opers ){
@@ -114,6 +115,12 @@ public class MainActivity extends AppCompatActivity {
             showScreen.setText(R.string.result_box);
         });
 
+        btn_dot.setOnClickListener(view -> {
+            if(!calcscreen.getText().toString().contains(".")){
+                calcscreen.setText(calcscreen.getText().toString() + ".");
+            }
+        });
+
         //making the switch case for the calculations
         equals.setOnClickListener(view -> {
 
@@ -137,10 +144,14 @@ public class MainActivity extends AppCompatActivity {
                 case "-":
                     result=firstNumber-secondNumber;
                     break;
+
+                case "%":
+                    result= (firstNumber/secondNumber)*100;
+                    break;
             }
             showScreen.setText(String.valueOf(result));
-            double result1 = Double.parseDouble(showScreen.getText().toString());
-            firstNumber = result1;
+            //double result = Double.parseDouble(showScreen.getText().toString());
+            firstNumber = result;
         });
     }
 }
