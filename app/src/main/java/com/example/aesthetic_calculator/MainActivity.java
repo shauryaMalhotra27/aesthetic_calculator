@@ -3,6 +3,7 @@ package com.example.aesthetic_calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private double firstNumber;
+    private int firstNumber;
     String operations;
 
     @Override
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         calcscreen.setShowSoftInputOnFocus(false);
 
         //calling numeric buttons
+        Button power_btn = findViewById(R.id.btnPower);
         Button btn_dot = findViewById(R.id.btndot);
         Button btn0 = findViewById(R.id.btn0);
         Button btn1 = findViewById(R.id.btn1);
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         //adding function to each basic function button
         for(Button b: opers ){
             b.setOnClickListener(view -> {
-                firstNumber = Double.parseDouble(calcscreen.getText().toString());
+                firstNumber = Integer.parseInt(calcscreen.getText().toString());
                 operations = b.getText().toString();
                 calcscreen.setText("");
             });
@@ -109,12 +111,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //adding function to the power button
+        power_btn.setOnClickListener(view -> {
+            int counter = 2;
+            if(counter%2==0){
+
+                calcscreen.setVisibility(View.GONE);
+                showScreen.setVisibility(View.GONE);
+                counter++;
+
+            }
+            else {
+                calcscreen.setVisibility(View.VISIBLE);
+                showScreen.setVisibility(View.VISIBLE);
+                counter++;
+            }
+
+
+        });
+
         //adding function to the allclear button
         all_clear.setOnClickListener(view -> {
             calcscreen.setText("0");
             showScreen.setText(R.string.result_box);
         });
 
+        //adding function to the dot button
         btn_dot.setOnClickListener(view -> {
             if(!calcscreen.getText().toString().contains(".")){
                 calcscreen.setText(calcscreen.getText().toString() + ".");
@@ -124,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
         //making the switch case for the calculations
         equals.setOnClickListener(view -> {
 
-            double secondNumber = Double.parseDouble(calcscreen.getText().toString());
-            double result = 0;
+            int secondNumber = Integer.parseInt(calcscreen.getText().toString());
+            int result = 0;
 
             switch (operations){
 

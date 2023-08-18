@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "866639488437",
+    "project_id": "aesthetic-calculator-daaf5",
+    "storage_bucket": "aesthetic-calculator-daaf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866639488437:android:d4342431879d69f1bb65fc",
+        "android_client_info": {
+          "package_name": "com.example.aesthetic_calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866639488437-lj4psvtjs2g1ku7t86bm5icpvrr0al6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aesthetic_calculator",
+            "certificate_hash": "5596464f4904c08b2215efc9e77428f00a8d3adc"
+          }
+        },
+        {
+          "client_id": "866639488437-g2ougn71ne042jk6d32gu6s5o0m7jli8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgWAtKqHklBXQ-q74DiNFy0NW2MAMEa1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866639488437-g2ougn71ne042jk6d32gu6s5o0m7jli8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
