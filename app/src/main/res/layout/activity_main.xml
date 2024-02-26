@@ -267,13 +267,10 @@
 
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                android:id="@+id/btnPower"
+                android:id="@+id/btnBracket"
                 android:textSize="19sp"
                 android:backgroundTint="#9C27B0"
-                android:text="I/O"
-
-
-
+                android:text="("
 
                 />
             <Button

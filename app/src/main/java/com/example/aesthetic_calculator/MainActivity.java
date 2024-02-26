@@ -3,6 +3,7 @@ package com.example.aesthetic_calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int firstNumber;
     String operations;
-
+    boolean counterForBracket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         calcscreen.setShowSoftInputOnFocus(false);
 
         //calling numeric buttons
-        Button power_btn = findViewById(R.id.btnPower);
+        Button bracket_btn = findViewById(R.id.btnBracket);
         Button btn_dot = findViewById(R.id.btndot);
         Button btn0 = findViewById(R.id.btn0);
         Button btn1 = findViewById(R.id.btn1);
@@ -112,21 +113,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //adding function to the power button
-        power_btn.setOnClickListener(view -> {
-            int counter = 2;
-            if(counter%2==0){
+        bracket_btn.setOnClickListener(view -> {
+            Log.d("TAG", "onCreate: " + counterForBracket);
 
-                calcscreen.setVisibility(View.GONE);
-                showScreen.setVisibility(View.GONE);
-                counter++;
-
+            for (int i = 0;i < calcscreen.getText().toString().length();i++){
+                if(calcscreen.getText().toString().charAt(i) == '0'  ){
+                    calcscreen.setText("");
+                    counterForBracket = true;
+                }
+                else if( calcscreen.getText().toString().charAt(i) == '(' ){
+                    counterForBracket = false;
+                }
+                else if( calcscreen.getText().toString().charAt(i) == ')' ){
+                    counterForBracket = true;
+                }
+                else {
+                    counterForBracket = true;
+                }
             }
-            else {
-                calcscreen.setVisibility(View.VISIBLE);
-                showScreen.setVisibility(View.VISIBLE);
-                counter++;
-            }
 
+            if (counterForBracket){
+               calcscreen.setText(calcscreen.getText().toString() + "(");
+            }
+            else if(!counterForBracket) {
+                calcscreen.setText(calcscreen.getText().toString() + ")");
+            }
 
         });
 
@@ -148,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
             int secondNumber = Integer.parseInt(calcscreen.getText().toString());
             int result = 0;
+            Log.d("TAG", "operations " + operations);
 
             switch (operations){
 
